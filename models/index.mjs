@@ -11,7 +11,7 @@ const db = {};
 
 let sequelize = new Sequelize(config.database, config.username, config.password, config);
 
-// add your model definitions to db here
+db.Item = itemModel(sequelize, Sequelize.DataTypes);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
