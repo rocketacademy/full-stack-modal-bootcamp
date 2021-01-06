@@ -1,11 +1,12 @@
 export default function initItemsController(db) {
-  const index = (request, response) => {
-    db.Item.findAll()
-      .then((items) => {
-        console.log(items);
-        response.render('items/index', { items });
-      })
-      .catch((error) => console.log(error));
+  const index = async (request, response) => {
+    try {
+      const items = await db.Item.findAll();
+      console.log(items);
+      response.render('items/index', { items });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return {
